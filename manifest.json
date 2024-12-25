@@ -1,0 +1,27 @@
+{
+  "name": "Copy Paste Tel Links Extension",
+  "description": "Copy and paste tel links for use with google voice with right click",
+  "version": "0.1",
+  "manifest_version": 3,
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "service_worker": "extension.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "extension.js"
+      ],
+      "matches": [
+        "https://voice.google.com/*",
+        "https://mobile.impact.ailife.com/Lead/*"
+      ]
+    }
+  ]
+}
