@@ -53,7 +53,7 @@ chrome.storage.sync.get("extensionEnabled", ({ extensionEnabled }) => {
 
 // Listen for toggle messages
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.action === "toggleExtension") {
+  if (message.action === "toggleCopyPasteTelLinksExtension") {
     isEnabled = message.enabled;
   }
 });

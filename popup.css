@@ -7,6 +7,16 @@ html {
 body {
   width: 300px;
   padding: 16px;
+  background: #1a181b;
+  color: white;
+}
+
+h1 {
+  font-size: 20px;
+  padding: 16px;
+  background: #54a4d8;
+  border-radius: 10px;
+  color: white;
 }
 
 .input-group {
@@ -40,7 +50,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #413c44;
   -webkit-transition: 0.4s;
   transition: 0.4s;
   border-radius: 34px;
@@ -60,11 +70,11 @@ body {
 }
 
 input:checked+.slider {
-  background-color: #2196f3;
+  background-color: #54a4d8;
 }
 
 input:focus+.slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px #54a4d8;
 }
 
 input:checked+.slider:before {

@@ -4,11 +4,10 @@
   "version": "0.1",
   "manifest_version": 3,
   "permissions": [
-    "storage",
-    "nativeMessaging"
+    "storage"
   ],
   "background": {
-    "service_worker": "serviceWorker.js"
+    "service_worker": "extension.js"
   },
   "action": {
     "default_popup": "popup.html",
