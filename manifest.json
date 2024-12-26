@@ -5,10 +5,11 @@
   "manifest_version": 3,
   "permissions": [
     "storage",
-    "nativeMessaging"
+    "nativeMessaging",
+    "tabs"
   ],
   "background": {
-    "service_worker": "serviceWorker.js"
+    "service_worker": "scripts/serviceWorker.js"
   },
   "action": {
     "default_popup": "popup.html",
@@ -17,10 +18,17 @@
   "content_scripts": [
     {
       "js": [
-        "extension.js"
+        "scripts/googleVoice.js"
       ],
       "matches": [
-        "https://voice.google.com/*",
+        "https://voice.google.com/*"
+      ]
+    },
+    {
+      "js": [
+        "scripts/impact.js"
+      ],
+      "matches": [
         "https://mobile.impact.ailife.com/Lead/*"
       ]
     }
