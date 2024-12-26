@@ -1,6 +1,6 @@
 {
-  "name": "Copy Paste Tel Links Extension",
-  "description": "Copy and paste tel links for use with google voice with right click",
+  "name": "Impact To Voice Extension",
+  "description": "Send Impact phone numbers to google voice with right click",
   "version": "0.1",
   "manifest_version": 3,
   "permissions": [

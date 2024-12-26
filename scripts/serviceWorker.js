@@ -2,7 +2,12 @@ async function onMessage(message, sender, sendResponse) {
   console.log(message);
 
   if (message.action === "toggleCopyPasteTelLinksExtension") {
-    const tabs = await chrome.tabs.query({});
+    const tabs = await chrome.tabs.query({
+      url: [
+        "https://voice.google.com/*",
+        "https://mobile.impact.ailife.com/Lead/*",
+      ],
+    });
 
     tabs.forEach(async (tab) => {
       chrome.tabs.sendMessage(tab.id, message);

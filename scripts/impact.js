@@ -17,7 +17,7 @@ document.addEventListener("contextmenu", (e) => {
 
     chrome.runtime.sendMessage({
       action: "callFromGoogleVoice",
-      phone: "4028048752",
+      phone,
     });
   } else if (
     e.target.id === "cellPhCallButton" ||
@@ -29,7 +29,7 @@ document.addEventListener("contextmenu", (e) => {
 
     chrome.runtime.sendMessage({
       action: "callFromGoogleVoice",
-      phone: "4028048752",
+      phone,
     });
   }
 });
