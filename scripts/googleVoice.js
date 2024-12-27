@@ -1,29 +1,28 @@
 let isEnabled = false;
 
-async function makeCall(number) {
+async function makeCall(phone) {
   if (!isEnabled) return;
 
   const gvInputField = document.querySelector(
     'input[placeholder="Enter a name or number"]',
   );
 
-  gvInputField.value = number;
+  gvInputField.value = phone;
+
   gvInputField.dispatchEvent(
     new Event("input", { bubbles: true, cancelable: true }),
   );
 
-  const gvCallBtn = document.querySelector(".call-button");
-  gvCallBtn.click();
+  gvInputField.dispatchEvent(
+    new KeyboardEvent("keydown", {
+      key: "Enter",
+      code: "Enter",
+      keyCode: 13, // Deprecated
+      bubbles: true,
+      cancelable: true,
+    }),
+  );
 }
-
-document.addEventListener("contextmenu", (e) => {
-  if (!isEnabled) return;
-
-  if (e.target.matches('input[placeholder="Enter a name or number"]')) {
-    e.preventDefault();
-    makeCall();
-  }
-});
 
 // Load initial state
 chrome.storage.sync.get("extensionEnabled", ({ extensionEnabled }) => {
