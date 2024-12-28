@@ -1,6 +1,6 @@
 let isEnabled = false;
 
-async function makeCall(phone) {
+function makeCall(phone) {
   if (!isEnabled) return;
 
   const gvInputField = document.querySelector(
@@ -24,16 +24,19 @@ async function makeCall(phone) {
   );
 }
 
-// Load initial state
 chrome.storage.sync.get("extensionEnabled", ({ extensionEnabled }) => {
   isEnabled = extensionEnabled || false;
 });
 
-// Listen for toggle messages
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.action === "toggleExtension") {
-    isEnabled = message.isEnabled;
-  } else if (message.action === "callFromGoogleVoice") {
-    makeCall(message.phone);
+  switch (message.action) {
+    case "toggleExtension":
+      isEnabled = message.payload;
+      break;
+    case "makeCall":
+      makeCall(message.payload);
+      break;
+    default:
+      return;
   }
 });

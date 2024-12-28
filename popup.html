@@ -2,18 +2,29 @@
 <html>
 
 <head>
-    <title>Impact To Google Voice</title>
+    <title>Impact To Voice</title>
     <link rel="stylesheet" href="popup.css" />
 </head>
 
 <body>
-    <h1>Impact To Google Voice</h1>
+    <h1>Impact To Voice</h1>
     <div class="input-group toggle-group">
         <p id="statusText">Disabled</p>
         <label class="switch">
-            <input type="checkbox" id="toggleSwitch" />
+            <input type="checkbox" id="toggleExtensionSwitch" />
             <span class="slider"></span>
         </label>
+    </div>
+
+    <h2>Call From</h2>
+
+    <div class="input-group radio-group">
+        <input type="radio" class="call-from" id="googlevoice" name="callfrom" value="googlevoice" />
+        <label for="googlevoice">Google Voice</label>
+    </div>
+    <div class="input-group radio-group">
+        <input type="radio" class="call-from" id="textnow" name="callfrom" value="textnow" />
+        <label for="textnow">TextNow</label>
     </div>
     <script src="scripts/popup.js"></script>
 </body>

@@ -1,6 +1,6 @@
 {
   "name": "Impact To Voice Extension",
-  "description": "Send Impact phone numbers to google voice with right click",
+  "description": "Send Impact phone numbers to google voice or text now with right click",
   "version": "0.1",
   "manifest_version": 3,
   "permissions": [
@@ -26,10 +26,19 @@
     },
     {
       "js": [
+        "scripts/textNow.js"
+      ],
+      "matches": [
+        "https://www.textnow.com/messaging"
+      ]
+    },
+    {
+      "js": [
         "scripts/impact.js"
       ],
       "matches": [
-        "https://mobile.impact.ailife.com/Lead/*"
+        "https://mobile.impact.ailife.com/Lead/*",
+        "http://127.0.0.1:3000/test.html"
       ]
     }
   ],

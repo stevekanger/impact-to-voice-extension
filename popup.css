@@ -1,3 +1,11 @@
+:root {
+  --primary: #54a4d8;
+}
+
+html {
+  font-size: 16px;
+}
+
 body,
 html {
   margin: 0;
@@ -5,18 +13,29 @@ html {
 }
 
 body {
-  width: 300px;
-  padding: 16px;
+  width: 20rem;
+  padding: 1rem;
   background: #1a181b;
   color: white;
 }
 
+h1,
+h2 {
+  padding: 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: normal;
+}
+
 h1 {
-  font-size: 20px;
-  padding: 16px;
-  background: #54a4d8;
-  border-radius: 10px;
+  font-size: 1.4rem;
+  padding: 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-weight: normal;
+  border-bottom: 1px solid var(--primary);
   color: white;
+  margin-top: 0;
 }
 
 .input-group {
@@ -24,9 +43,29 @@ h1 {
   margin: 0.5rem 0;
 }
 
-.toggle-group {
+.toggle-group,
+.radio-group {
   display: flex;
   align-items: center;
+}
+
+input[type="radio"] {
+  margin: 0;
+  width: 1em;
+  height: 1em;
+  margin: 0.25em 0.5rem;
+  vertical-align: top;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: 0.25rem solid white;
+  border-radius: 50%;
+  appearance: none;
+}
+
+input[type="radio"]:checked {
+  border-color: var(--primary);
 }
 
 .switch {
@@ -51,8 +90,6 @@ h1 {
   right: 0;
   bottom: 0;
   background-color: #413c44;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
   border-radius: 34px;
 }
 
@@ -64,17 +101,15 @@ h1 {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
   border-radius: 50%;
 }
 
 input:checked+.slider {
-  background-color: #54a4d8;
+  background-color: var(--primary);
 }
 
 input:focus+.slider {
-  box-shadow: 0 0 1px #54a4d8;
+  box-shadow: 0 0 1px var(--primary);
 }
 
 input:checked+.slider:before {
