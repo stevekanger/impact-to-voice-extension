@@ -17,7 +17,7 @@ async function makeCall(phone) {
     new KeyboardEvent("keydown", {
       key: "Enter",
       code: "Enter",
-      keyCode: 13, // Deprecated
+      keyCode: 13,
       bubbles: true,
       cancelable: true,
     }),
@@ -31,8 +31,8 @@ chrome.storage.sync.get("extensionEnabled", ({ extensionEnabled }) => {
 
 // Listen for toggle messages
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.action === "toggleCopyPasteTelLinksExtension") {
-    isEnabled = message.enabled;
+  if (message.action === "toggleExtension") {
+    isEnabled = message.isEnabled;
   } else if (message.action === "callFromGoogleVoice") {
     makeCall(message.phone);
   }

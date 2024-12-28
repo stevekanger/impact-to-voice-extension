@@ -1,13 +1,24 @@
+function setEnabledStatus(isEnabled) {
+  const statusText = document.getElementById("statusText");
+
+  if (isEnabled) {
+    statusText.innerHTML = "Enabled";
+  } else {
+    statusText.innerHTML = "Disabled";
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const toggleSwitch = document.getElementById("toggleSwitch");
-  const statusText = document.getElementById("statusText");
 
   // Load the current state from storage
   chrome.storage.sync.get("extensionEnabled", ({ extensionEnabled }) => {
     toggleSwitch.checked = extensionEnabled || false;
 
     if (extensionEnabled) {
-      statusText.innerHTML = "Enabled";
+      setEnabledStatus(true);
+    } else {
+      setEnabledStatus(false);
     }
   });
 
@@ -17,16 +28,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     chrome.storage.sync.set({ extensionEnabled: isEnabled }, () => {
       if (isEnabled) {
-        statusText.innerHTML = "Enabled";
+        setEnabledStatus(true);
       } else {
-        statusText.innerHTML = "Disabled";
+        setEnabledStatus(false);
       }
-    });
 
-    // Notify extension.js
-    chrome.runtime.sendMessage({
-      action: "toggleCopyPasteTelLinksExtension",
-      enabled: isEnabled,
+      // Notify serviceWorker.js
+      chrome.runtime.sendMessage({
+        action: "toggleExtension",
+        isEnabled,
+      });
     });
   });
 });
