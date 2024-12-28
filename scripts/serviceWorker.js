@@ -6,9 +6,11 @@ function setEnabledStatus(isEnabled) {
   }
 }
 
-chrome.storage.sync.get("extensionEnabled", ({ extensionEnabled }) => {
-  isEnabled = extensionEnabled || false;
-  setEnabledStatus(isEnabled);
+chrome.runtime.onStartup.addListener(function() {
+  chrome.storage.sync.get("extensionEnabled", ({ extensionEnabled }) => {
+    isEnabled = extensionEnabled || false;
+    setEnabledStatus(isEnabled);
+  });
 });
 
 async function onMessage(message, sender, sendResponse) {
