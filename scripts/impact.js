@@ -39,6 +39,6 @@ chrome.storage.sync.get("extensionEnabled", ({ extensionEnabled }) => {
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === "toggleExtension") {
-    isEnabled = message.isEnabled;
+    isEnabled = message.payload;
   }
 });
