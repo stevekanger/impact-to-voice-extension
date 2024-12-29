@@ -1,4 +1,4 @@
-# Impact To Google Voice Extension
+# Impact To Voice Extension
 
 This extension is for me to be able to send tel links from impact to Google Voice or Text Now with just a right click.
 
