@@ -1,14 +1,5 @@
 import type { Message } from "./types";
 
-(async function onStart() {
-  try {
-    const { isEnabled } = await chrome.storage.local.get("isEnabled");
-    setEnabledStatus(isEnabled);
-  } catch (error: any) {
-    console.log(error);
-  }
-})();
-
 async function onInstalled() {
   try {
     const { callFrom } = await chrome.storage.local.get("callFrom");
@@ -33,6 +24,12 @@ function setEnabledStatus(isEnabled: boolean) {
 
 chrome.storage.onChanged.addListener(({ isEnabled }, namespace) => {
   setEnabledStatus(isEnabled.newValue);
+});
+
+chrome.runtime.onStartup.addListener(() => {
+  chrome.storage.local.get("isEnabled", ({ isEnabled }) => {
+    setEnabledStatus(isEnabled);
+  });
 });
 
 function getCallFromPageUrl(callFrom: string) {
