@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // Modern JavaScript version supported by browsers
+    "module": "ESNext", // Compatible with Webpack
+    "moduleResolution": "node", // Resolves modules in Node.js style
+    "strict": true, // Enables strict type checking
+    "esModuleInterop": true, // Allows default imports for CommonJS modules
+    "forceConsistentCasingInFileNames": true, // Enforce file casing consistency
+    "skipLibCheck": true, // Skips checking .d.ts files for faster builds
+    "outDir": "./build", // Output directory (handled by Webpack)
+    "baseUrl": ".", // Base directory for resolving paths
+    "paths": {
+      "*": [
+        "node_modules/*"
+      ]
+    },
+    "sourceMap": true // Generates source maps for debugging
+  },
+  "include": [
+    "src/**/*"
+  ], // Includes all TypeScript files in the src directory
+  "exclude": [
+    "node_modules",
+    "build"
+  ] // Excludes unnecessary directories
+}

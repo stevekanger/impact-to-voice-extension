@@ -1,0 +1,29 @@
+{
+  "name": "impact-to-voice-extension",
+  "version": "0.0.1",
+  "description": "Simple extension to send impact phone numbers to voice or textnow with a right click",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "webpack --mode=production",
+    "dev": "webpack --watch --mode=development"
+  },
+  "author": "Steven Kanger",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chrome": "^0.0.287",
+    "autoprefixer": "^10.4.20",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^7.1.2",
+    "mini-css-extract-plugin": "^2.9.2",
+    "postcss-loader": "^8.1.1",
+    "sass": "^1.83.0",
+    "sass-loader": "^16.0.4",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.7.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  }
+}

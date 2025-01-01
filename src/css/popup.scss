@@ -1,6 +1,4 @@
-:root {
-  --primary: #54a4d8;
-}
+$primary: #54a4d8;
 
 html {
   font-size: 16px;
@@ -33,7 +31,7 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   font-weight: normal;
-  border-bottom: 1px solid var(--primary);
+  border-bottom: 1px solid $primary;
   color: white;
   margin-top: 0;
 }
@@ -65,7 +63,7 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked {
-  border-color: var(--primary);
+  border-color: $primary;
 }
 
 .switch {
@@ -105,11 +103,11 @@ input[type="radio"]:checked {
 }
 
 input:checked+.slider {
-  background-color: var(--primary);
+  background-color: $primary;
 }
 
 input:focus+.slider {
-  box-shadow: 0 0 1px var(--primary);
+  box-shadow: 0 0 1px $primary;
 }
 
 input:checked+.slider:before {
