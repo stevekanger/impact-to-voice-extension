@@ -3,7 +3,11 @@
   "description": "Send Impact phone numbers to google voice or text now with right click",
   "version": "0.1",
   "manifest_version": 3,
-  "permissions": ["storage", "nativeMessaging", "tabs"],
+  "permissions": [
+    "storage",
+    "nativeMessaging",
+    "tabs"
+  ],
   "background": {
     "service_worker": "js/serviceWorker.js"
   },
@@ -13,16 +17,28 @@
   },
   "content_scripts": [
     {
-      "js": ["js/googleVoice.js"],
-      "matches": ["https://voice.google.com/*"]
+      "js": [
+        "js/googleVoice.js"
+      ],
+      "matches": [
+        "https://voice.google.com/*"
+      ]
     },
     {
-      "js": ["js/textNow.js"],
-      "matches": ["https://www.textnow.com/messaging"]
+      "js": [
+        "js/textNow.js"
+      ],
+      "matches": [
+        "https://www.textnow.com/messaging"
+      ]
     },
     {
-      "js": ["js/impact.js"],
-      "matches": ["https://mobile.impact.ailife.com/Lead/*"]
+      "js": [
+        "js/impact.js"
+      ],
+      "matches": [
+        "https://mobile.impact.ailife.com/Lead/*"
+      ]
     }
   ],
   "icons": {

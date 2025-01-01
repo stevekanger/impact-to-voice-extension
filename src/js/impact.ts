@@ -18,21 +18,17 @@ function onContextMenu(e: MouseEvent) {
 
   const target = e.target as HTMLAnchorElement;
 
-  if (target.id === "phoneCallButton" || target.closest("#phoneCallButton")) {
-    e.preventDefault();
-    const href = target.href;
-    const phone = replaceNonNumbers(href);
-    sendMessage({
-      type: "makeCall",
-      payload: phone,
-    });
-  } else if (
+  if (
+    target.id === "phoneCallButton" ||
     target.id === "cellPhCallButton" ||
+    target.closest("#phoneCallButton") ||
     target.closest("#cellPhCallButton")
   ) {
     e.preventDefault();
+
     const href = target.href;
     const phone = replaceNonNumbers(href);
+
     sendMessage({
       type: "makeCall",
       payload: phone,
