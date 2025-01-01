@@ -2,12 +2,22 @@ import type { Message } from "./types";
 
 async function onInstalled() {
   try {
-    const { callFrom } = await chrome.storage.local.get("callFrom");
+    const defaultOptions = {
+      isEnabled: false,
+      callFrom: "googlevoice",
+    };
 
-    if (callFrom) return;
+    for (const [key, value] of Object.entries(defaultOptions)) {
+      const stored = await chrome.storage.local.get(key);
 
-    chrome.storage.local.set({ isEnabled: false });
-    chrome.storage.local.set({ callFrom: "googlevoice" });
+      if (stored[key] === undefined) {
+        await chrome.storage.local.set({ [key]: value });
+      }
+    }
+
+    const { isEnabled } = await chrome.storage.local.get("inEnabled");
+
+    setEnabledStatus(isEnabled);
   } catch (error: any) {
     console.log(error);
   }
