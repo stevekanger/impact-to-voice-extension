@@ -31,6 +31,8 @@ async function toggleExtensionSwitchInit() {
         setEnabledStatus(isEnabled);
       });
     });
+
+    setEnabledStatus(isEnabled);
   } catch (error: any) {
     console.log(error);
   }

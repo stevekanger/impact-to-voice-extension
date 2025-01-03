@@ -26,7 +26,13 @@ function onContextMenu(e: MouseEvent) {
   ) {
     e.preventDefault();
 
-    const href = target.href;
+    const link =
+      (target.closest("#phoneCallButton") as HTMLAnchorElement | undefined) ||
+      (target.closest("#cellPhCallButton") as HTMLAnchorElement | undefined);
+
+    if (!link) return;
+
+    const href = link.href;
     const phone = replaceNonNumbers(href);
 
     sendMessage({

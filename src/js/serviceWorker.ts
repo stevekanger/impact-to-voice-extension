@@ -15,7 +15,7 @@ async function onInstalled() {
       }
     }
 
-    const { isEnabled } = await chrome.storage.local.get("inEnabled");
+    const { isEnabled } = await chrome.storage.local.get("isEnabled");
 
     setEnabledStatus(isEnabled);
   } catch (error: any) {
